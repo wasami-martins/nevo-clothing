@@ -1,14 +1,16 @@
-// @ts-nocheck
-import React, { useState } from "react";
+import { useState } from "react";
+
+import FormInput from "../form-input/form-input";
+import Button from "../button/button.component";
+
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 
-import FormInput from "../form-input/form-input";
 import "./sign-up-form.styles.scss";
 
-const defaultFormField = {
+const defaultFormFields = {
   displayName: "",
   email: "",
   password: "",
@@ -16,8 +18,8 @@ const defaultFormField = {
 };
 
 const SignUpForm = () => {
-  const [formFields, setFormFields] = useState(defaultFormField);
-  const { displayName, password, email, confirmPassword } = formFields;
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { displayName, email, password, confirmPassword } = formFields;
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -39,7 +41,6 @@ const SignUpForm = () => {
 
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
-      setCurrentUser(user);
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("Cannot create user, email already in use");
@@ -95,7 +96,7 @@ const SignUpForm = () => {
           name="confirmPassword"
           value={confirmPassword}
         />
-        <button type="submit">Sign Up</button>
+        <Button type="submit">Sign Up</Button>
       </form>
     </div>
   );
