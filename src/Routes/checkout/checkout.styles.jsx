@@ -19,6 +19,10 @@ export const CheckoutHeader = styled.div`
   @media screen and (max-width: 800px) {
     font-size: 12px;
   }
+
+  @media screen and (max-width: 400px) {
+    font-size: 10px;
+  }
 `;
 
 export const HeaderBlock = styled.div`
@@ -37,5 +41,9 @@ export const Total = styled.span`
 
   @media screen and (max-width: 800px) {
     font-size: 20px;
+  }
+
+  @media screen and (max-width: 400px) {
+    font-size: 18px;
   }
 `;
