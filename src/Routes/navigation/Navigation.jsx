@@ -12,9 +12,9 @@ import logo from "/assets/crown.svg";
 
 import {
   NavigationContainer,
-  LogoContainer,
-  NavLinkContainer,
+  NavLinks,
   NavLink,
+  LogoContainer,
 } from "./navigation.styles.jsx";
 
 const Navigation = () => {
@@ -29,21 +29,18 @@ const Navigation = () => {
             <img src={logo} alt="logo" />
           </div>
         </LogoContainer>
-        <NavLinkContainer>
+        <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>
 
           {currentUser ? (
-            <NavLink as= 'span' onClick={signOutUser}>
-              {" "}
-              SIGN OUT{" "}
+            <NavLink as="span" onClick={signOutUser}>
+              SIGN OUT
             </NavLink>
           ) : (
-            <NavLink className="nav-link" to="/auth">
-              SIGN IN
-            </NavLink>
+            <NavLink to="/auth">SIGN IN</NavLink>
           )}
           <CartIcon />
-        </NavLinkContainer>
+        </NavLinks>
         {isCartOpen && <CartDropdown />}
       </NavigationContainer>
       <Outlet />

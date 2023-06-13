@@ -5,17 +5,21 @@ import Navigation from "./Routes/navigation/Navigation";
 import Authentication from "./Routes/authentication/authentication";
 import Shop from "./Routes/shop/shop";
 import Checkout from "./Routes/checkout/checkout";
+import { GlobalStyle } from "./global.styles";
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Navigation />}>
-        <Route index element={<Home />} />
-        <Route path="shop/*" element={<Shop />} />
-        <Route path="auth" element={<Authentication />} />
-        <Route path="checkout" element={<Checkout />} />
-      </Route>
-    </Routes>
+    <div>
+      <GlobalStyle />
+      <Routes>
+        <Route path="/" element={<Navigation />}>
+          <Route index element={<Home />} />
+          <Route path="shop/*" element={<Shop />} />
+          <Route path="auth" element={<Authentication />} />
+          <Route path="checkout" element={<Checkout />} />
+        </Route>
+      </Routes>
+    </div>
   );
 };
 
